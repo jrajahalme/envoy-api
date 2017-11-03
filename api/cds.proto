@@ -229,4 +229,9 @@ message Cluster {
   // This overrides any bind_config specified in the bootstrap proto.
   // If the addres and port are empty, no bind will be performed.
   BindConfig upstream_bind_config = 21;
+
+  // Cluster can operate both HTTP1.1 and HTTP2 connections and the protocol
+  // is chosen based on the downstream protocol, if any.  In case there is no
+  // downstream connection, this option will be ignored.
+  google.protobuf.BoolValue auto_http2 = 25;
 }
