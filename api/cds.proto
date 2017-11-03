@@ -317,4 +317,9 @@ message Cluster {
 
   // See base.TransportSocket description.
   TransportSocket transport_socket = 24;
+
+  // Cluster can operate both HTTP1.1 and HTTP2 connections and the protocol
+  // is chosen based on the downstream protocol, if any.  In case there is no
+  // downstream connection, this option will be ignored.
+  bool auto_http2 = 26;
 }
